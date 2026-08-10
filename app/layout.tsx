@@ -1,5 +1,6 @@
 import './globals.css'
 import './mobile-fixes.css'
+import './effects.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
