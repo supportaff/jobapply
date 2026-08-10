@@ -13,3 +13,18 @@ html,body{width:100%;max-width:100%;margin:0;overflow-x:hidden}
 }
 @keyframes mobile-marquee{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
 @media(max-width:380px){.nav .btn{font-size:9px;padding:9px 10px}.interactive-title{font-size:42px}.hero-scene{height:280px}.dash-stats b{font-size:16px}.job-state{display:none}.stage-tabs button{font-size:10px}.swot-card{padding:13px}.swot-card p{font-size:10px}.refund-badge{padding:10px 12px;gap:8px}.refund-badge strong{font-size:11px}.refund-badge span{font-size:9px}}
+
+/* Preserve the original hero headline and keep the refund promise adjacent to it. */
+.interactive-title{font-size:0!important}
+.interactive-title::before{content:"Don't just apply.";display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(55px,7vw,90px);line-height:.91;letter-spacing:-.045em;color:#101411}
+.interactive-title::after{content:"Build a better search.";display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(55px,7vw,90px);line-height:.91;letter-spacing:-.045em;color:#77836f}
+@media(min-width:901px){
+  .refund-badge{position:absolute;right:-8px;top:112px;width:190px;display:flex;flex-direction:column;gap:5px;padding:12px 14px;border:1px solid #dfe4d8;border-radius:15px;background:#fff;box-shadow:0 14px 35px #10141110;transform:translateX(8px)}
+  .refund-badge strong{font:800 12px 'Space Grotesk';letter-spacing:.05em;color:#101411}
+  .refund-badge span{font-size:10px;line-height:1.4;color:#687069}
+}
+@media(max-width:600px){
+  .interactive-title{font-size:0!important;margin:18px 0}
+  .interactive-title::before,.interactive-title::after{font-size:clamp(43px,13vw,58px);line-height:.94}
+  .refund-badge{position:static;width:100%;transform:none}
+}
