@@ -3,6 +3,7 @@ import './mobile-fixes.css'
 import './effects.css'
 import './auth.css'
 import './blog/blog.css'
+import './blog-preview.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
