@@ -1,68 +1,29 @@
 'use client'
-
 import { useEffect, useRef, useState } from 'react'
-
-const stages = [
-  { id:'discover', title:'Discover', icon:'⌕', text:'We scan for relevant roles and build a focused opportunity pipeline.' },
-  { id:'tailor', title:'Tailor', icon:'✦', text:'Your application positioning is adapted to the opportunity without inventing credentials.' },
-  { id:'apply', title:'Apply', icon:'↗', text:'Applications are submitted and organized so you never lose track of where you stand.' },
-  { id:'interview', title:'Interview', icon:'◎', text:'When an employer responds, we help you prepare for the conversation.' },
+const stages=[
+{id:'onboard',title:'Onboard',icon:'◎',text:'We start with a proper onboarding process: career goals, experience, target roles, locations, compensation and application preferences.'},
+{id:'analyze',title:'Analyze',icon:'✦',text:'We screen your candidate profile and perform a structured SWOT analysis to identify strengths, gaps, opportunities and risks before applications begin.'},
+{id:'discover',title:'Discover',icon:'⌕',text:'We search relevant openings across major countries and job sources, then prioritize roles that fit your agreed profile.'},
+{id:'apply',title:'Apply',icon:'↗',text:'We tailor and submit relevant applications, track responses and move the pipeline toward interviews.'},
 ]
-
-export default function InteractiveHome() {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState('discover')
-  const [scrolled, setScrolled] = useState(false)
-  const slots = 10
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll, { passive:true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const tilt = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = heroRef.current
-    if (!el) return
-    const r = el.getBoundingClientRect()
-    const x = ((e.clientX-r.left)/r.width-.5)*10
-    const y = ((e.clientY-r.top)/r.height-.5)*-10
-    el.style.setProperty('--rx', `${y}deg`)
-    el.style.setProperty('--ry', `${x}deg`)
-  }
-  const resetTilt = () => { heroRef.current?.style.setProperty('--rx','0deg'); heroRef.current?.style.setProperty('--ry','0deg') }
-
-  return <>
-    <div className={`progressbar ${scrolled ? 'visible':''}`}><span /></div>
-    <section className="interactive-hero wrap" onMouseMove={tilt} onMouseLeave={resetTilt}>
-      <div className="hero-orb orb-one" /><div className="hero-orb orb-two" />
-      <div className="hero-copy">
-        <div className="live-pill"><span className="pulse" /> {slots} of 10 launch slots available</div>
-        <h2 className="interactive-title">Your job search,<br /><span>on autopilot.</span></h2>
-        <p>Tell us what you want next. We handle the repetitive work between finding the right role and getting you into the interview.</p>
-        <div className="magnetic-actions"><a className="btn btn-dark magnetic" href="#start">Claim $499 launch price <b>→</b></a><a className="textlink" href="#experience">Explore the experience ↓</a></div>
-        <div className="microproof"><span>✓</span> 3 months <span>✓</span> One-time payment <span>✓</span> Interview refund guarantee*</div>
-      </div>
-      <div className="hero-scene" ref={heroRef} style={{'--rx':'0deg','--ry':'0deg'} as React.CSSProperties}>
-        <div className="scene-glow" /><div className="floating-chip chip-top"><span>LIVE</span> Application found</div><div className="floating-chip chip-bottom">Interview prep <strong>Ready</strong></div>
-        <div className="dashboard-pro">
-          <div className="dash-head"><div><small>JOBAPPLY / SEARCH</small><h3>Career pipeline</h3></div><div className="avatar">JA</div></div>
-          <div className="dash-stats"><div><b>47</b><span>Found</span></div><div><b>18</b><span>Applied</span></div><div><b>4</b><span>Replies</span></div><div className="accent"><b>2</b><span>Interviews</span></div></div>
-          <div className="pipeline"><div className="pipeline-line"><span style={{width:'72%'}} /></div><div className="pipeline-labels"><span>Search</span><span>Applied</span><span>Screening</span><span>Interview</span></div></div>
-          <div className="live-job"><div className="company-logo">N</div><div className="job-meta"><b>Cloud Security Lead</b><span>Northstar Technologies · Remote</span><small>94% match</small></div><div className="job-state">New match <i>↗</i></div></div>
-          <div className="live-job"><div className="company-logo">V</div><div className="job-meta"><b>Senior GRC Analyst</b><span>Vertex Labs · Hybrid</span><small>91% match</small></div><div className="job-state applied-state">Applied ✓</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" className="experience wrap">
-      <div className="section-kicker">THE PROCESS</div><h2>One search. <span>Four moments.</span></h2><p className="experience-lead">Click through the journey to see exactly what happens after you join.</p>
-      <div className="stage-tabs">{stages.map((s,i)=><button className={active===s.id?'active':''} onClick={()=>setActive(s.id)} key={s.id}><i>{s.icon}</i>{s.title}<span>0{i+1}</span></button>)}</div>
-      <div className="stage-panel">{stages.map((s,i)=>active===s.id && <div className="stage-content" key={s.id}><div className="stage-number">0{i+1}</div><div><h3>{s.title}</h3><p>{s.text}</p><div className="stage-progress"><span style={{width:`${(i+1)*25}%`}} /></div><small>STEP {i+1} OF 4</small></div><div className="stage-visual"><div className="radar" /><div className="stage-icon">{s.icon}</div></div></div>)}</div>
-    </section>
-
-    <section className="scroll-story"><div className="wrap story-grid"><div className="story-sticky"><div className="section-kicker">WHY JOBAPPLY</div><h2>Stop spending your best hours <span>on forms.</span></h2><p>Searching is a full-time task disguised as a side task. JobApply turns it into a managed pipeline.</p><a className="btn btn-dark" href="#start">Get my time back →</a></div><div className="story-cards"><article><strong>01</strong><h3>Less searching</h3><p>We narrow the market to roles that fit your agreed target instead of making you browse endlessly.</p></article><article><strong>02</strong><h3>More consistency</h3><p>Your search keeps moving even on the days when your work, family or life takes priority.</p></article><article><strong>03</strong><h3>Better visibility</h3><p>See the pipeline clearly: opportunities found, applications submitted, replies and interviews.</p></article><article><strong>04</strong><h3>Ready when it matters</h3><p>When an interview appears, the focus changes from applying to preparing.</p></article></div></div></section>
-
-    <section className="interactive-guarantee"><div className="wrap guarantee-inner"><div><div className="section-kicker">THE LAUNCH OFFER</div><h2><s>$799</s> <span>$499</span></h2><p>First 10 clients only. Three months. One payment.</p></div><div className="slot-counter"><div className="slot-ring"><b>{slots}</b><small>left</small></div><div><strong>Launch slots</strong><p>After all 10 slots are claimed, the price returns to $799.</p><div className="slot-bar"><span style={{width:'0%'}} /></div></div></div><a id="start" className="btn btn-dark magnetic" href="mailto:hello@jobapply.com?subject=Claim%20JobApply%20Launch%20Slot">Claim my slot →</a></div></section>
-  </>
+const countries=['🇺🇸 United States','🇨🇦 Canada','🇬🇧 United Kingdom','🇦🇺 Australia','🇩🇪 Germany','🇳🇱 Netherlands','🇮🇪 Ireland','🇸🇬 Singapore','🇦🇪 UAE','🇳🇿 New Zealand','🇫🇷 France','🇸🇪 Sweden','🇨🇭 Switzerland','🇮🇳 India']
+const portals=['LinkedIn','Indeed','Glassdoor','Monster','ZipRecruiter','Dice','Wellfound','Hired','Naukri','Seek','Totaljobs','StepStone','JobStreet','Bayt','Jooble']
+const companies=['Google','Microsoft','Amazon','Apple','Meta','IBM','Oracle','Cisco','Deloitte','Accenture','PwC','EY','KPMG','Capgemini','Infosys','TCS','Wipro','Siemens','SAP','ServiceNow']
+export default function InteractiveHome(){
+ const heroRef=useRef<HTMLDivElement>(null);const [active,setActive]=useState('onboard');const [scrolled,setScrolled]=useState(false);const slots=10
+ useEffect(()=>{const f=()=>setScrolled(window.scrollY>30);window.addEventListener('scroll',f,{passive:true});return()=>window.removeEventListener('scroll',f)},[])
+ const tilt=(e:React.MouseEvent<HTMLDivElement>)=>{const el=heroRef.current;if(!el)return;const r=el.getBoundingClientRect();el.style.setProperty('--rx',`${((e.clientY-r.top)/r.height-.5)*-10}deg`);el.style.setProperty('--ry',`${((e.clientX-r.left)/r.width-.5)*10}deg`)}
+ const reset=()=>{heroRef.current?.style.setProperty('--rx','0deg');heroRef.current?.style.setProperty('--ry','0deg')}
+ return <>
+ <div className={`progressbar ${scrolled?'visible':''}`}><span/></div>
+ <section className="interactive-hero wrap" onMouseMove={tilt} onMouseLeave={reset}><div className="hero-orb orb-one"/><div className="hero-orb orb-two"/><div className="hero-copy">
+ <div className="live-pill"><span className="pulse"/> Managed career service · not SaaS</div><h2 className="interactive-title">Don't just apply.<br/><span>Build a better search.</span></h2><p>JobApply is a managed job-search service. We onboard you properly, analyze your candidate profile, perform a SWOT analysis and manage relevant applications across major countries and job portals.</p><div className="magnetic-actions"><a className="btn btn-dark magnetic" href="#start">Claim $499 launch price <b>→</b></a><a className="textlink" href="#service">See how we work ↓</a></div><div className="microproof"><span>✓</span> Minimum 3 months <span>✓</span> One-time payment <span>✓</span> Interview-focused process</div>
+ </div><div className="hero-scene" ref={heroRef} style={{'--rx':'0deg','--ry':'0deg'} as React.CSSProperties}><div className="scene-glow"/><div className="floating-chip chip-top"><span>PROFILE</span> SWOT analyzed</div><div className="floating-chip chip-bottom">Application pipeline <strong>Active</strong></div><div className="dashboard-pro"><div className="dash-head"><div><small>JOBAPPLY / MANAGED SEARCH</small><h3>Candidate pipeline</h3></div><div className="avatar">JA</div></div><div className="dash-stats"><div><b>47</b><span>Matched</span></div><div><b>18</b><span>Applied</span></div><div><b>4</b><span>Replies</span></div><div className="accent"><b>2</b><span>Interviews</span></div></div><div className="pipeline"><div className="pipeline-line"><span style={{width:'72%'}}/></div><div className="pipeline-labels"><span>Profile</span><span>Search</span><span>Apply</span><span>Interview</span></div></div><div className="live-job"><div className="company-logo">S</div><div className="job-meta"><b>Senior Security Engineer</b><span>Global employer · Remote</span><small>96% match</small></div><div className="job-state">New match</div></div><div className="live-job"><div className="company-logo">G</div><div className="job-meta"><b>GRC Consultant</b><span>Global employer · Hybrid</span><small>92% match</small></div><div className="job-state applied-state">Applied ✓</div></div></div></div></section>
+ <section id="service" className="service-section"><div className="wrap service-grid"><div><div className="section-kicker">WHY MINIMUM 3 MONTHS</div><h2>Good results need enough time.</h2><p className="service-copy">We require a minimum 3-month engagement because a serious job search is not a one-week campaign. The first stage is onboarding and profile analysis. Then we build the search strategy, identify suitable roles, submit quality applications, monitor employer responses and improve the approach based on market feedback. A longer runway gives the process enough time to generate a meaningful level of response.</p><p className="service-copy"><strong>This is not a SaaS subscription.</strong> JobApply is a managed service where our team handles the job-search workflow for you.</p></div><div className="swot"><div className="swot-card"><b>STRENGTHS</b><p>Experience, certifications, achievements and differentiators we can position.</p></div><div className="swot-card"><b>WEAKNESSES</b><p>Profile gaps, positioning issues and areas that may reduce response rates.</p></div><div className="swot-card"><b>OPPORTUNITIES</b><p>Roles, industries, locations and markets where the profile can compete strongly.</p></div><div className="swot-card"><b>THREATS</b><p>Competition, market conditions, skill gaps and application barriers.</p></div></div></div></section>
+ <section className="countries-section"><div className="country-label">GLOBAL JOB SEARCH · MAJOR COUNTRIES</div><div className="country-marquee">{[...countries,...countries].map((c,i)=><div className="country" key={i}>{c}</div>)}</div></section>
+ <section className="portal-section"><div className="portal-title">We search across leading job portals</div><div className="portal-track">{[...portals,...portals].map((p,i)=><div className="portal" key={i}>{p}</div>)}</div></section>
+ <section className="company-section"><div className="company-title">TARGET EMPLOYERS ACROSS THE SEARCH</div><div className="company-track">{[...companies,...companies].map((c,i)=><div className="company" key={i}>{c}</div>)}</div></section>
+ <section id="experience" className="experience wrap"><div className="section-kicker">THE PROCESS</div><h2>From profile <span>to interview.</span></h2><p className="experience-lead">Click through the managed service journey.</p><div className="stage-tabs">{stages.map((s,i)=><button className={active===s.id?'active':''} onClick={()=>setActive(s.id)} key={s.id}><i>{s.icon}</i>{s.title}<span>0{i+1}</span></button>)}</div><div className="stage-panel">{stages.map((s,i)=>active===s.id&&<div className="stage-content" key={s.id}><div className="stage-number">0{i+1}</div><div><h3>{s.title}</h3><p>{s.text}</p><div className="stage-progress"><span style={{width:`${(i+1)*25}%`}}/></div><small>STEP {i+1} OF 4</small></div><div className="stage-visual"><div className="radar"/><div className="stage-icon">{s.icon}</div></div></div>)}</div></section>
+ <section className="scroll-story"><div className="wrap story-grid"><div className="story-sticky"><div className="section-kicker">WHY JOBAPPLY</div><h2>Stop spending your best hours <span>on forms.</span></h2><p>We take the repetitive job-search workload off your plate while keeping the strategy focused on your profile and goals.</p><a className="btn btn-dark" href="#start">Start my search →</a></div><div className="story-cards"><article><strong>01</strong><h3>Proper onboarding</h3><p>We understand your profile before applications start.</p></article><article><strong>02</strong><h3>SWOT analysis</h3><p>We identify strengths, weaknesses, opportunities and threats affecting your search.</p></article><article><strong>03</strong><h3>Global discovery</h3><p>We can target relevant opportunities across major countries and leading job portals.</p></article><article><strong>04</strong><h3>Managed applications</h3><p>Relevant applications are tailored, submitted and tracked toward responses.</p></article></div></div></section>
+ <section className="interactive-guarantee"><div className="wrap guarantee-inner"><div><div className="section-kicker">THE LAUNCH OFFER</div><h2><s>$799</s> <span>$499</span></h2><p>Minimum 3 months. One payment. First 10 clients.</p></div><div className="slot-counter"><div className="slot-ring"><b>{slots}</b><small>left</small></div><div><strong>Launch slots</strong><p>After the first 10 slots, the price returns to $799.</p><div className="slot-bar"><span style={{width:'0%'}}/></div></div></div><a id="start" className="btn btn-dark magnetic" href="mailto:hello@jobapply.com?subject=Claim%20JobApply%20Launch%20Slot">Claim my slot →</a></div></section></>
 }
