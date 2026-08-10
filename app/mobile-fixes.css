@@ -4,7 +4,7 @@ html,body{width:100%;max-width:100%;margin:0;overflow-x:hidden}
 *,*::before,*::after{max-width:100%}
 .wrap{width:100%;max-width:100%;padding-left:16px;padding-right:16px}
 .nav{height:68px;padding:0 16px;gap:10px;width:100%}.nav .btn{padding:10px 12px;font-size:10px;white-space:nowrap}.logo{font-size:19px}.navlinks{display:none}
-.interactive-hero{width:100%;min-height:auto;padding:42px 16px 70px;display:flex;flex-direction:column;gap:28px;overflow:hidden}.hero-copy{width:100%}.live-pill{max-width:100%;font-size:10px;white-space:normal}.refund-badge{display:flex;align-items:center;gap:10px;width:100%;margin:14px 0 2px;padding:11px 14px;border:1px solid #dfe4d8;border-radius:14px;background:#fff;box-shadow:0 8px 25px #10141108}.refund-badge strong{font:800 12px 'Space Grotesk';letter-spacing:.05em;white-space:nowrap}.refund-badge span{font-size:10px;line-height:1.35;color:#687069}.interactive-title{font-size:clamp(43px,13vw,58px);line-height:.94;overflow-wrap:break-word;margin:18px 0}.hero-copy>p{font-size:15px;line-height:1.6}.magnetic-actions{flex-direction:column;align-items:stretch;gap:10px}.magnetic-actions .btn{width:100%}.magnetic-actions .calendly-hero-btn{width:100%;border:1px solid #101411;background:transparent;color:#101411;position:static}.magnetic-actions .textlink{text-align:center;width:100%}.microproof{font-size:10px;line-height:1.7}
+.interactive-hero{width:100%;min-height:auto;padding:42px 16px 70px;display:flex;flex-direction:column;gap:28px;overflow:hidden}.hero-copy{width:100%;display:flex;flex-direction:column}.live-pill{max-width:100%;font-size:10px;white-space:normal;order:1}.refund-badge{order:3;display:flex;align-items:center;gap:10px;width:100%;margin:6px 0 2px;padding:11px 14px;border:1px solid #dfe4d8;border-radius:14px;background:#fff;box-shadow:0 8px 25px #10141108}.refund-badge strong{font:800 12px 'Space Grotesk';letter-spacing:.05em;white-space:nowrap}.refund-badge span{font-size:10px;line-height:1.35;color:#687069}.interactive-title{order:2;font-size:0!important;line-height:.94;overflow-wrap:break-word;margin:18px 0}.hero-copy>p{order:4;font-size:15px;line-height:1.6}.magnetic-actions{order:5;flex-direction:column;align-items:stretch;gap:10px}.magnetic-actions .btn{width:100%}.magnetic-actions .calendly-hero-btn{width:100%;border:1px solid #101411;background:#c7ff3d;color:#101411;position:static}.magnetic-actions .textlink{text-align:center;width:100%}.microproof{order:6;font-size:10px;line-height:1.7}
 .hero-scene{width:100%;height:300px;min-width:0;transform:none!important;overflow:visible}.dashboard-pro{top:18px;left:0;right:0;width:100%;max-width:100%;padding:16px;border-radius:20px;animation:none;transform:none}.dash-head h3{font-size:20px}.dash-stats{gap:5px;margin:15px 0}.dash-stats div{padding:9px 7px;min-width:0}.dash-stats b{font-size:18px}.dash-stats span{font-size:8px}.pipeline{margin:16px 0}.pipeline-labels{font-size:7px}.live-job{gap:8px;padding:11px 0}.company-logo{width:32px;height:32px;flex:0 0 32px}.job-meta{min-width:0}.job-meta b,.job-meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.job-meta b{font-size:10px}.job-meta span{font-size:8px}.job-meta small{font-size:8px}.job-state{font-size:7px;white-space:nowrap}.floating-chip{font-size:8px;padding:8px 10px}.chip-top{top:0;right:0}.chip-bottom{bottom:0;left:0}
 .service-section,.experience,.company-section,.portal-section{padding-top:70px;padding-bottom:70px}.service-grid,.story-grid,.offer,.guarantee-inner{width:100%;grid-template-columns:1fr;gap:28px}.service-grid h2,.offer h2{font-size:clamp(40px,11vw,54px)}.service-copy{font-size:14px;line-height:1.7}.swot{grid-template-columns:1fr 1fr;gap:8px}.swot-card{padding:16px;min-height:125px}.swot-card p{font-size:11px}
 .countries-section,.portal-section,.company-section{width:100%;overflow:hidden}.countries-section{padding:48px 0}.country-label{font-size:9px;padding:0 16px;line-height:1.5}.country-marquee{display:flex;flex-wrap:nowrap;width:max-content;min-width:max-content;gap:25px;animation:mobile-marquee 24s linear infinite;will-change:transform;transform:translate3d(0,0,0)}.country{flex:0 0 auto;font-size:18px;white-space:nowrap}.portal-section{padding:55px 0}.portal-title{font-size:22px;padding:0 16px;line-height:1.2}.portal-track{display:flex;flex-wrap:nowrap;width:max-content;min-width:max-content;gap:35px;animation:mobile-marquee 20s linear infinite;will-change:transform;transform:translate3d(0,0,0)}.portal{flex:0 0 auto;font-size:15px;white-space:nowrap}.company-section{padding:55px 0}.company-title{padding:0 16px;line-height:1.5}.company-track{display:flex;flex-wrap:nowrap;width:max-content;min-width:max-content;gap:35px;animation:mobile-marquee 25s linear infinite;will-change:transform;transform:translate3d(0,0,0)}.company{flex:0 0 auto;font-size:17px;white-space:nowrap}
@@ -14,24 +14,22 @@ html,body{width:100%;max-width:100%;margin:0;overflow-x:hidden}
 @keyframes mobile-marquee{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
 @media(max-width:380px){.nav .btn{font-size:9px;padding:9px 10px}.interactive-title{font-size:42px}.hero-scene{height:280px}.dash-stats b{font-size:16px}.job-state{display:none}.stage-tabs button{font-size:10px}.swot-card{padding:13px}.swot-card p{font-size:10px}.refund-badge{padding:10px 12px;gap:8px}.refund-badge strong{font-size:11px}.refund-badge span{font-size:9px}}
 
-/* Preserve the original hero headline and keep the refund promise adjacent to it. */
-.interactive-title{font-size:0!important}
+/* Original hero headline. */
+.interactive-title{font-size:0!important;margin:18px 0}
 .interactive-title::before{content:"Don't just apply.";display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(55px,7vw,90px);line-height:.91;letter-spacing:-.045em;color:#101411}
 .interactive-title::after{content:"Build a better search.";display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(55px,7vw,90px);line-height:.91;letter-spacing:-.045em;color:#77836f}
-@media(min-width:901px){
-  .hero-copy{position:relative}
-  .interactive-title{max-width:calc(100% - 220px)}
-  .refund-badge{position:absolute;right:-8px;top:112px;width:190px;display:flex;flex-direction:column;gap:5px;padding:12px 14px;border:1px solid #dfe4d8;border-radius:15px;background:#fff;box-shadow:0 14px 35px #10141110;transform:translateX(8px)}
-  .refund-badge strong{font:800 12px 'Space Grotesk';letter-spacing:.05em;color:#101411}
-  .refund-badge span{font-size:10px;line-height:1.4;color:#687069}
-  .magnetic-actions .calendly-hero-btn{position:absolute;top:255px;right:0;width:190px;margin:0;z-index:4;border:1px solid #101411;background:#c7ff3d;color:#101411;border-radius:999px;font-weight:700;box-shadow:0 12px 30px #10141118}
-}
-@media(max-width:900px){
-  .interactive-title{font-size:0!important;margin:18px 0}
-  .interactive-title::before,.interactive-title::after{font-size:clamp(43px,13vw,58px);line-height:.94}
-  .refund-badge{position:static;width:100%;transform:none}
-  .magnetic-actions .calendly-hero-btn{position:static}
-}
 
-/* The refund promise belongs in the hero. Do not add a second standalone guarantee block before pricing. */
+/* Keep the refund promise directly under the headline, then the consultation CTA. */
+.hero-copy{display:flex;flex-direction:column}
+.live-pill{order:1}
+.interactive-title{order:2}
+.refund-badge{order:3;position:static!important;display:flex;flex-direction:row;align-items:center;gap:10px;width:min(100%,520px);margin:4px 0 2px!important;transform:none!important;padding:11px 14px;border:1px solid #dfe4d8;border-radius:15px;background:#fff;box-shadow:0 10px 28px #1014110c}
+.refund-badge strong{font:800 12px 'Space Grotesk';letter-spacing:.05em;color:#101411;white-space:nowrap}
+.refund-badge span{font-size:11px;line-height:1.4;color:#687069}
+.hero-copy>p{order:4}
+.magnetic-actions{order:5}
+.microproof{order:6}
+.magnetic-actions .calendly-hero-btn{position:static!important;background:#c7ff3d;color:#101411;border:1px solid #101411;box-shadow:none}
+@media(min-width:901px){.interactive-title{max-width:100%}.refund-badge{margin-top:8px!important}.magnetic-actions{margin-top:12px}.magnetic-actions .calendly-hero-btn{width:auto}}
+@media(max-width:900px){.interactive-title::before,.interactive-title::after{font-size:clamp(43px,13vw,58px);line-height:.94}.refund-badge{width:100%;max-width:none}.magnetic-actions .calendly-hero-btn{width:100%}}
 .guarantee-banner{display:none!important}
