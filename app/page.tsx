@@ -10,24 +10,26 @@ const faqs = [
 ]
 
 const blogPosts = [
-  {category:'JOB SEARCH', title:'How to Find a Job Faster: A Practical Job Search Strategy', excerpt:'Build a focused search around your target role, profile, applications and interview pipeline instead of applying everywhere.', href:'/blog/how-to-find-a-job-faster'},
-  {category:'INTERVIEWS', title:'How to Get More Job Interviews in a Competitive Market', excerpt:'Learn what can improve response rates, from positioning and role selection to tailored applications and follow-up.', href:'/blog/how-to-get-more-job-interviews'},
-  {category:'APPLICATIONS', title:'Done-for-You Job Applications: What to Look For', excerpt:'Understand what a professional job application service should actually handle and what candidates should expect.', href:'/blog/done-for-you-job-application-service'},
-  {category:'CAREER', title:'How Many Jobs Should You Apply to Each Week?', excerpt:'Quality, relevance and consistency matter more than sending hundreds of random applications.', href:'/blog/how-many-jobs-should-you-apply-to-each-week'},
-  {category:'GLOBAL JOBS', title:'How to Search for Jobs in the USA From Abroad', excerpt:'A practical guide to targeting US employers, remote opportunities, relocation roles and international careers.', href:'/blog/how-to-search-for-jobs-in-the-usa'},
-  {category:'CAREER STRATEGY', title:'Why Candidate Profile Analysis Matters Before Applying', excerpt:'Discover how a profile review can uncover positioning gaps, strengths and better-fit opportunities.', href:'/blog/why-candidate-profile-analysis-matters'},
-  {category:'JOB SEARCH', title:'How to Do a SWOT Analysis for Your Job Search', excerpt:'Use strengths, weaknesses, opportunities and threats to make your career search more targeted.', href:'/blog/job-search-swot-analysis'},
-  {category:'INTERVIEWS', title:'The Complete Job Interview Preparation Guide', excerpt:'Prepare for common questions, role-specific discussions and the final stage of the hiring process.', href:'/blog/job-interview-preparation-guide'},
-  {category:'INTERNATIONAL', title:'How to Find Jobs in the UK, Canada and Australia', excerpt:'Compare international job-search approaches and build a practical overseas career strategy.', href:'/blog/international-job-search-uk-canada-australia'},
-  {category:'CAREER CHANGE', title:'How to Change Careers Without Starting From Zero', excerpt:'Translate existing experience into a stronger career narrative and target transferable opportunities.', href:'/blog/how-to-change-careers'},
+  {category:'JOB SEARCH', title:'How to Find a Job Faster: A Practical Job Search Strategy', excerpt:'Build a focused search around your target role, profile, applications and interview pipeline.', href:'/blog/how-to-find-a-job-faster'},
+  {category:'INTERVIEWS', title:'How to Get More Job Interviews in a Competitive Market', excerpt:'Improve response rates through positioning, role selection, tailored applications and follow-up.', href:'/blog/how-to-get-more-job-interviews'},
+  {category:'APPLICATIONS', title:'Done-for-You Job Applications: What to Look For', excerpt:'What a professional job application service should actually handle for candidates.', href:'/blog/done-for-you-job-application-service'},
+  {category:'CAREER', title:'How Many Jobs Should You Apply to Each Week?', excerpt:'Why relevance and consistency matter more than sending hundreds of random applications.', href:'/blog/how-many-jobs-should-you-apply-to-each-week'},
+  {category:'GLOBAL JOBS', title:'How to Search for Jobs in the USA From Abroad', excerpt:'A practical approach to US employers, remote opportunities and relocation roles.', href:'/blog/how-to-search-for-jobs-in-the-usa'},
+  {category:'CAREER STRATEGY', title:'Why Candidate Profile Analysis Matters Before Applying', excerpt:'Find positioning gaps, strengths and better-fit opportunities before the application campaign.', href:'/blog/why-candidate-profile-analysis-matters'},
+  {category:'JOB SEARCH', title:'How to Do a SWOT Analysis for Your Job Search', excerpt:'Use strengths, weaknesses, opportunities and threats to target your search.', href:'/blog/job-search-swot-analysis'},
+  {category:'INTERVIEWS', title:'The Complete Job Interview Preparation Guide', excerpt:'Prepare for common questions, role discussions and the final hiring stages.', href:'/blog/job-interview-preparation-guide'},
+  {category:'INTERNATIONAL', title:'How to Find Jobs in the UK, Canada and Australia', excerpt:'Compare international job-search approaches and build an overseas career strategy.', href:'/blog/international-job-search-uk-canada-australia'},
+  {category:'CAREER CHANGE', title:'How to Change Careers Without Starting From Zero', excerpt:'Turn existing experience into a stronger career narrative and target transferable roles.', href:'/blog/how-to-change-careers'},
 ]
+
+function CareerResources(){
+  return <section id="resources" className="blog-preview-section reveal-on-scroll"><div className="wrap"><div className="blog-preview-head"><div><div className="section-kicker">CAREER RESOURCES</div><h2>Insights to help you search smarter.</h2><p>Explore practical guides on job applications, interviews, career strategy and international job searches.</p></div><a className="blog-all-link" href="/blog">Explore all 10 guides →</a></div><div className="blog-preview-grid">{blogPosts.map((post,index)=><a className="blog-preview-card" href={post.href} key={post.href}><div className="blog-card-top"><span>{post.category}</span><b>{String(index+1).padStart(2,'0')}</b></div><h3>{post.title}</h3><p>{post.excerpt}</p><div className="blog-read">Read guide <span>↗</span></div></a>)}</div></div></section>
+}
 
 export default function Home() {
   return <main id="top">
     <header className="wrap nav"><a className="logo" href="#top">JobApply<span /></a><nav className="navlinks"><a href="#experience">How it works</a><a href="#resources">Career guides</a><a href="#offer">Pricing</a><a href="#faq">FAQ</a></nav><a className="btn btn-dark" href="#start">Start your search →</a></header>
-    <InteractiveHome />
-
-    <section id="resources" className="blog-preview-section"><div className="wrap"><div className="blog-preview-head"><div><div className="section-kicker">CAREER RESOURCES</div><h2>Practical guides for a better job search.</h2><p>Explore our latest advice on job applications, interviews, career strategy and international job searches.</p></div><a className="blog-all-link" href="/blog">View all guides →</a></div><div className="blog-preview-grid">{blogPosts.map((post,index)=><a className="blog-preview-card" href={post.href} key={post.href}><div className="blog-card-top"><span>{post.category}</span><b>0{index+1}</b></div><h3>{post.title}</h3><p>{post.excerpt}</p><div className="blog-read">Read guide <span>↗</span></div></a>)}</div></div></section>
+    <InteractiveHome><CareerResources /></InteractiveHome>
 
     <section id="offer" className="section faq-section"><div className="wrap"><div className="sectionhead compact"><div><div className="section-kicker">YOUR QUESTIONS</div><h2>Everything important, upfront.</h2></div><p>Clear answers before you start.</p></div><div className="faqgrid">{faqs.map(([q,a])=><details className="faq" key={q}><summary><span>{q}</span><b>+</b></summary><p>{a}</p></details>)}</div></div></section>
 
