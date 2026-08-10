@@ -1,5 +1,4 @@
 import InteractiveHome from './components/InteractiveHome'
-import CalendlyBooking from './components/CalendlyBooking'
 import ClientJourney from './components/ClientJourney'
 
 const faqs = [
@@ -31,15 +30,16 @@ function CareerResources(){
 
 export default function Home() {
   return <main id="top">
-    <header className="wrap nav"><a className="logo" href="#top">JobApply<span /></a><nav className="navlinks"><a href="#journey">Your journey</a><a href="#experience">How it works</a><a href="#resources">Career guides</a><a href="#book-call">Book a call</a><a href="#faq">FAQ</a></nav><a className="btn btn-dark" href="#book-call">Book a consultation →</a></header>
+    <header className="wrap nav"><a className="logo" href="#top">JobApply<span /></a><nav className="navlinks"><a href="#journey">Your journey</a><a href="#experience">How it works</a><a href="#resources">Career guides</a><a href="#book-call">Book a call</a><a href="#faq">FAQ</a></nav><a className="btn btn-dark" href="https://calendly.com/prakash-cyberinfosec" target="_blank" rel="noopener noreferrer">Book a consultation →</a></header>
     <InteractiveHome />
     <ClientJourney />
     <CareerResources />
-    <CalendlyBooking />
+
+    <section id="book-call" className="booking-cta-section reveal-on-scroll"><div className="wrap"><div className="booking-cta-card"><div><div className="section-kicker">START WITH A CONVERSATION</div><h2>Book your consultation.</h2><p>We review your goals, experience and target market first. If we believe JobApply is a suitable fit, we explain the next steps.</p></div><a className="btn btn-dark magnetic" href="https://calendly.com/prakash-cyberinfosec" target="_blank" rel="noopener noreferrer">Schedule a consultation <b>↗</b></a></div></div></section>
 
     <section id="faq" className="section faq-section"><div className="wrap"><div className="sectionhead compact"><div><div className="section-kicker">YOUR QUESTIONS</div><h2>Everything important, upfront.</h2></div><p>Clear answers before you start.</p></div><div className="faqgrid">{faqs.map(([q,a])=><details className="faq" key={q}><summary><span>{q}</span><b>+</b></summary><p>{a}</p></details>)}</div></div></section>
 
-    <section className="wrap cta"><div className="ctabox"><div className="ctaeyebrow">12 OF 15 LAUNCH SLOTS LEFT · 3 FILLED</div><h2>Start with a conversation, not a payment.</h2><p>Consultation → profile review → suitability decision → payment → onboarding → managed applications → interview support.</p><div className="actions center-actions"><a className="btn btn-dark" href="#book-call">Book a consultation →</a></div><small>After all 15 qualifying launch slots are filled, the price returns to $799.</small></div></section>
+    <section className="wrap cta"><div className="ctabox"><div className="ctaeyebrow">12 OF 15 LAUNCH SLOTS LEFT · 3 FILLED</div><h2>Start with a conversation, not a payment.</h2><p>Consultation → profile review → suitability decision → payment → onboarding → managed applications → interview support.</p><div className="actions center-actions"><a className="btn btn-dark" href="https://calendly.com/prakash-cyberinfosec" target="_blank" rel="noopener noreferrer">Book a consultation →</a></div><small>After all 15 qualifying launch slots are filled, the price returns to $799.</small></div></section>
 
     <footer className="site-footer"><div className="wrap footer-main"><div className="footer-brand"><a className="footer-logo" href="#top">JobApply<span /></a><p>Managed job application support from candidate profile to interview.</p><div className="footer-badge">MANAGED CAREER SERVICE</div></div><div className="footer-col"><h4>Explore</h4><a href="#experience">How it works</a><a href="#journey">Your journey</a><a href="#resources">Career guides</a><a href="#book-call">Book a call</a><a href="#faq">FAQ</a></div><div className="footer-col"><h4>Service</h4><a href="#service">Candidate analysis</a><a href="#experience">Interview preparation</a><a href="#service">Global job search</a></div><div className="footer-col"><h4>Legal</h4><a href="/terms">Terms & Conditions</a><a href="/privacy">Privacy</a><a href="mailto:hello@jobapply.com">Contact</a></div></div><div className="wrap footer-bottom"><span>© 2026 JobApply. All rights reserved.</span><span>3-month minimum · $499 launch offer · 12 of 15 slots left</span><span>Refund terms apply · No job offer guaranteed.</span></div></footer>
   </main>
